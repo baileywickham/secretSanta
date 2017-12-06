@@ -38,6 +38,10 @@ def main():
                     break
     print(l)
 
+N = names.__len__()
+r
+while it < max_it and not conditions_met:
+
 
 def text(phoneNumber, receiver):
     pass
