@@ -1,54 +1,33 @@
 import random
-# import plivo
+import plivo
 
-# auth_id = "MAYJNHN2E3YJA0ZTKYMJ"
-# auth_token = "YTA0ZWFjZjM5NTNlOGJkMzllMzYwN2Y3NzI5M2Zi"
-# p = plivo.RestAPI(auth_id, auth_token)
-
-shuffledNames = []
-names = ["andy", "jack", "christian", "ben", "ian", "bailey"]
-numbers =  ["5033329523", "5037060383", "5034844734", "5038940386", "5037079976", "5039892243"]
-
-counter = 0
+auth_id = "MAYJNHN2E3YJA0ZTKYMJ"
+auth_token = "YTA0ZWFjZjM5NTNlOGJkMzllMzYwN2Y3NzI5M2Zi"
+p = plivo.RestAPI(auth_id, auth_token)
 
 
-def rand():
-    tmpNames = list(names)
-    # random.shuffle(tmpNames)
-    for index, n in enumerate(tmpNames):
-        randomNum = random.randrange(0, len(tmpNames))
-        print(randomNum)
-        shuffledNames.append(tmpNames[randomNum])
-
-    return shuffledNames
+def secretSanta(names, secret):
+    random.shuffle(names)
+    secret.append(secret.pop(0))
+    printResults(names, secret)
 
 
-def main():
-    tmpNames = rand()
-    while True:
-        for idx, name in enumerate(names):
-            if name == tmpNames[idx]:
-                counter = 0
-                rand()
-                print('reseting...')
-            else:
-                counter += 1
-                print(counter)
-                if counter == 5:
-                    break
-    print(l)
-
-N = names.__len__()
-r
-while it < max_it and not conditions_met:
+# print the results
+def printResults(names, secret):
+    for i in range(len(names)):
+        print("%10s == is buying a present for ==> %s" % (names[i], secret[i]))
+        textResults(names[i], secret[i])
 
 
-def text(phoneNumber, receiver):
-    pass
-    # params = {'src': '9712063040', 'dst': phoneNumber, 'text': receiver}
-    # response = p.send_message(params)
-    # print(response)
+def textResults(name, number):
+    params = {'src': '19712063040', 'dst': number, 'text': name}
+    response = p.send_message(params)
+    print(response)
+    if str(response[0]) != 202:
+        print("something fucked up")
 
 
 if __name__ == '__main__':
-    main()
+    names = ["andy", "jack", "christian", "ben", "ian", "bailey"]
+    numbers =  ["15033329523", "15037060383", "15034844734", "15038940386", "15037079976", "15039892243"]
+    secretSanta(names, numbers)
