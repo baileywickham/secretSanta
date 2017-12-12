@@ -14,20 +14,63 @@ def secretSanta(names, secret):
 
 # print the results
 def printResults(names, secret):
+    with open('matches.txt' 'w') as file:
+        file.write(names, '\n', secret)
     for i in range(len(names)):
-        print("%10s == is buying a present for ==> %s" % (names[i], secret[i]))
         textResults(names[i], secret[i])
 
 
+
 def textResults(name, number):
-    params = {'src': '19712063040', 'dst': number, 'text': name}
+    params = {'src': '19712063040', 'dst': number,
+              'text': "You are giving a gift to: " + name}
     response = p.send_message(params)
+    with open('results.txt', 'w') as file:
+        file.append('\n' + response)
     print(response)
-    if str(response[0]) != 202:
-        print("something fucked up")
 
 
 if __name__ == '__main__':
-    names = ["andy", "jack", "christian", "ben", "ian", "bailey"]
-    numbers =  ["15033329523", "15037060383", "15034844734", "15038940386", "15037079976", "15039892243"]
+    names = ["andy craig",
+             "jack warz",
+             "ryan scrogg",
+             "ben cox",
+             "ian enger",
+             "bailey",
+             "maddie Jaztak",
+             "Owen",
+             "nikki l",
+             "reece",
+             "joey",
+             "jonah",
+             "Peyton",
+             "kylie booth",
+             "Ian Stormotn",
+             "Ahley peniak",
+             "Sailor",
+             "will",
+             "ethan"
+             ]
+
+    numbers = ["15033329523",  # Andy Craig
+               "15037060383",  # Jack Warzlec
+               "15038990975",  # Ryan Scroggin
+               "15038940386",  # Ben Cox
+               "15037079976",  # Ian Enger
+               "15039892243",  # Bailey
+               "15035775843",  # Maddie Jaztak
+               "15039275732",  # Owen Grubbe
+               "15032706978",  # Nikki L
+               "15032770052",  # Reece Barnard
+               "15038583945",  # Joey Price
+               "18137676950",  # Jonah
+               "19712636560",  # Peyton Carl
+               "15037993057",  # Kylie Booth
+               "15031888054",  # Ian Stormont
+               "15034109522",  # Ashley Peniak
+               "19712469563",  # Sailor Benitez
+               "15035501155",  # Will Oakly
+               "15033106561",  # Ethan
+               ]
+
     secretSanta(names, numbers)
