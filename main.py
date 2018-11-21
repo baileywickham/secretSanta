@@ -5,6 +5,9 @@ auth_id = "MAYJNHN2E3YJA0ZTKYMJ"
 auth_token = "YTA0ZWFjZjM5NTNlOGJkMzllMzYwN2Y3NzI5M2Zi"
 p = plivo.RestAPI(auth_id, auth_token)
 
+class Person(self, name, number):
+    self.name = name
+    self.number = number
 
 def secretSanta(names, secret):
     random.shuffle(names)
@@ -23,8 +26,9 @@ def printResults(names, secret):
 def textResults(name, number):
     params = {'src': '19712063040', 'dst': number,
               'text': "this is baileys robot. You are giving a gift to: " + name}
-    response = p.send_message(params)
-    print(response)
+    #response = p.send_message(params)
+    #print(response)
+
 
 
 if __name__ == '__main__':
