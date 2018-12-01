@@ -9,9 +9,8 @@ class Person(self, name, number):
     self.name = name
     self.number = number
 
-def secretSanta(names, secret):
+def secretSanta(names):
     random.shuffle(names)
-    secret.append(secret.pop(0))
     printResults(names, secret)
 
 
@@ -30,6 +29,12 @@ def textResults(name, number):
     #print(response)
 
 
+def reads():
+    peoples = []
+    with open('people') as f:
+        for line in f.read().split():
+            peoples.append(Person(line[0],[1])
+            
 
 if __name__ == '__main__':
     names = ["andy craig",
