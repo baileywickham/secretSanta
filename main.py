@@ -1,8 +1,8 @@
 import random
 import plivo
 
-auth_id = "MAYJNHN2E3YJA0ZTKYMJ"
-auth_token = "YTA0ZWFjZjM5NTNlOGJkMzllMzYwN2Y3NzI5M2Zi"
+auth_id = ""
+auth_token = ""
 plv = plivo.RestClient(auth_id, auth_token)
 
 class Person:
