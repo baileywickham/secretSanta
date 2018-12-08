@@ -1,8 +1,8 @@
 import random
 import plivo
 
-auth_id = ""
-auth_token = ""
+auth_id = "MAYJNHN2E3YJA0ZTKYMJ"
+auth_token = "MjJiYjk5ZjU4ZmExNmMxOWM4MjVhNTVmNGE3Yjg3"
 plv = plivo.RestClient(auth_id, auth_token)
 
 class Person:
@@ -13,7 +13,7 @@ class Person:
 def printResults(peoples):
     outstr = ''
     random.shuffle(peoples)
-    f = open('output', 'w')
+    f = open('output_women', 'w')
     for num in range(len(peoples)):
         outstr += peoples[num % len(peoples)].name + ' >> ' + peoples[(num+1) % len(peoples)].name + '\n'
         textResults(peoples[(num+1) % len(peoples)].name, peoples[num % len(peoples)].number) 
@@ -27,7 +27,7 @@ def textResults(name, number):
 
 def reads():
     peoples = []
-    with open('people') as f:
+    with open('women') as f:
         for line in f.readlines():
             line = line.split(" ")
             peoples.append(Person(line[0],line[1].strip('\n')))
