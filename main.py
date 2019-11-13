@@ -1,4 +1,5 @@
 import random
+import sys
 import plivo
 
 auth_id = ""
@@ -15,7 +16,7 @@ class Person:
 def printResults(peoples):
     outstr = ''
     random.shuffle(peoples)
-    f = open('output_women', 'w')
+    f = open(f'output/{file}', 'w')
     for num in range(len(peoples)):
         outstr += peoples[num % len(peoples)].name + ' >> ' + \
             peoples[(num+1) % len(peoples)].name + '\n'
@@ -32,11 +33,12 @@ def textResults(name, number):
 
 def reads():
     peoples = []
-    with open('women') as f:
+    with open(f'{file}') as f:
         for line in f.readlines():
-            line = line.split(" ")
+            line = line.split(",")
             peoples.append(Person(line[0], line[1].strip('\n')))
     printResults(peoples)
 
 
+file = str(sys.argv[1])
 reads()
