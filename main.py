@@ -2,8 +2,10 @@ import random
 import sys
 import plivo
 
-auth_id = ""
-auth_token = ""
+with open("secret", 'r') as f:
+    auth_id = f.readline().strip('\n')
+    auth_token = f.readline().strip('\n')
+
 plv = plivo.RestClient(auth_id, auth_token)
 
 
@@ -16,7 +18,7 @@ class Person:
 def printResults(peoples):
     outstr = ''
     random.shuffle(peoples)
-    f = open(f'output/{file}', 'w')
+    f = open(f'output/{file}.output', 'w')
     for num in range(len(peoples)):
         outstr += peoples[num % len(peoples)].name + ' >> ' + \
             peoples[(num+1) % len(peoples)].name + '\n'
