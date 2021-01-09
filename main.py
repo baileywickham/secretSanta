@@ -33,7 +33,7 @@ def textResults(name, number):
     print(response)
 
 
-def reads():
+def readPeople(file):
     peoples = []
     with open(f'{file}') as f:
         for line in f.readlines():
@@ -42,5 +42,8 @@ def reads():
     printResults(peoples)
 
 
-file = str(sys.argv[1])
-reads()
+if len(sys.argv) != 2:
+    print("Use: python3 main.py people")
+    sys.exit()
+else:
+    readPeople(str(sys.argv[1])
